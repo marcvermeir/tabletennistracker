@@ -1,8 +1,8 @@
 var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate']);
 
-app.constant('VTTLAPI', { 'URL' : 'https://api.vttl.be/0.7/index.php?s=vttl', 
+app.constant('VTTLAPI', { 'URL' : 'http://api.vttl.be/0.7/index.php?s=vttl', 
                           'WSDL' : 'http://api.vttl.be/0.7/?wsdl', 
-                          'NAMESPACEURL' :'https://api.frenoy.net/TabTAPI' });
+                          'NAMESPACEURL' :'http://api.frenoy.net/TabTAPI' });
 
 app.config(['$routeProvider',
   function($routeProvider) {
