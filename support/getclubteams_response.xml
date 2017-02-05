@@ -1,0 +1,144 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.frenoy.net/TabTAPI">
+   <SOAP-ENV:Body>
+      <ns1:GetClubTeamsResponse>
+         <ns1:ClubName/>
+         <ns1:TeamCount>17</ns1:TeamCount>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2855-6</ns1:TeamId>
+            <ns1:Team>A</ns1:Team>
+            <ns1:DivisionId>2855</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 2B - Nationaal - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2862-6</ns1:TeamId>
+            <ns1:Team>B</ns1:Team>
+            <ns1:DivisionId>2862</ns1:DivisionId>
+            <ns1:DivisionName>Reeks B VTTL - Landelijk - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2861-11</ns1:TeamId>
+            <ns1:Team>C</ns1:Team>
+            <ns1:DivisionId>2861</ns1:DivisionId>
+            <ns1:DivisionName>Reeks A VTTL - Landelijk - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2885-11</ns1:TeamId>
+            <ns1:Team>D</ns1:Team>
+            <ns1:DivisionId>2885</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 1 - Prov. Antwerpen - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2887-1</ns1:TeamId>
+            <ns1:Team>E</ns1:Team>
+            <ns1:DivisionId>2887</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 2B - Prov. Antwerpen - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2886-1</ns1:TeamId>
+            <ns1:Team>F</ns1:Team>
+            <ns1:DivisionId>2886</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 2A - Prov. Antwerpen - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2889-8</ns1:TeamId>
+            <ns1:Team>G</ns1:Team>
+            <ns1:DivisionId>2889</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 3B - Prov. Antwerpen - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2892-8</ns1:TeamId>
+            <ns1:Team>H</ns1:Team>
+            <ns1:DivisionId>2892</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 4B - Prov. Antwerpen - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2896-8</ns1:TeamId>
+            <ns1:Team>I</ns1:Team>
+            <ns1:DivisionId>2896</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 5B - Prov. Antwerpen - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2895-1</ns1:TeamId>
+            <ns1:Team>J</ns1:Team>
+            <ns1:DivisionId>2895</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 5A - Prov. Antwerpen - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2899-12</ns1:TeamId>
+            <ns1:Team>K</ns1:Team>
+            <ns1:DivisionId>2899</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 6 - Prov. Antwerpen - Heren</ns1:DivisionName>
+            <ns1:DivisionCategory>1</ns1:DivisionCategory>
+            <ns1:MatchType>2</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2925-3</ns1:TeamId>
+            <ns1:Team>A</ns1:Team>
+            <ns1:DivisionId>2925</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 1B - Prov. Antwerpen - Jeugd</ns1:DivisionName>
+            <ns1:DivisionCategory>13</ns1:DivisionCategory>
+            <ns1:MatchType>4</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>3212-5</ns1:TeamId>
+            <ns1:Team>A</ns1:Team>
+            <ns1:DivisionId>3212</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 1 Super Play-Offs - Prov. Antwerpen - Jeugd</ns1:DivisionName>
+            <ns1:DivisionCategory>13</ns1:DivisionCategory>
+            <ns1:MatchType>4</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>3232-4</ns1:TeamId>
+            <ns1:Team>A</ns1:Team>
+            <ns1:DivisionId>3232</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 5B Play-Offs - Prov. Antwerpen - Jeugd</ns1:DivisionName>
+            <ns1:DivisionCategory>13</ns1:DivisionCategory>
+            <ns1:MatchType>6</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>2929-3</ns1:TeamId>
+            <ns1:Team>B</ns1:Team>
+            <ns1:DivisionId>2929</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 3B - Prov. Antwerpen - Jeugd</ns1:DivisionName>
+            <ns1:DivisionCategory>13</ns1:DivisionCategory>
+            <ns1:MatchType>4</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>3216-5</ns1:TeamId>
+            <ns1:Team>B</ns1:Team>
+            <ns1:DivisionId>3216</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 2B Play-Offs - Prov. Antwerpen - Jeugd</ns1:DivisionName>
+            <ns1:DivisionCategory>13</ns1:DivisionCategory>
+            <ns1:MatchType>4</ns1:MatchType>
+         </ns1:TeamEntries>
+         <ns1:TeamEntries>
+            <ns1:TeamId>3223-5</ns1:TeamId>
+            <ns1:Team>C</ns1:Team>
+            <ns1:DivisionId>3223</ns1:DivisionId>
+            <ns1:DivisionName>Afdeling 4C Play-Offs - Prov. Antwerpen - Jeugd</ns1:DivisionName>
+            <ns1:DivisionCategory>13</ns1:DivisionCategory>
+            <ns1:MatchType>4</ns1:MatchType>
+         </ns1:TeamEntries>
+      </ns1:GetClubTeamsResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

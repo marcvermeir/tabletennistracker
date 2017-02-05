@@ -1,0 +1,15 @@
+<hr/>
+<div class="table-responsive">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Criteria</div>
+        <div class="panel-body">
+            <h4>Teams</h4>
+            <select class="form-control" ng-model="criteria.selectedTeam" ng-options="t.value as t.label for t in ttteams" placeholder="Selecteer een team" ng-change="teamChanged()"></select>
+            <h4>Divisies</h4>
+            <select class="form-control" ng-model="criteria.selectedDivision" ng-options="t.value as t.label for t in ttdivisions" placeholder="Selecteer een divisie"></select>
+            <h4>Weken</h4>
+            <select class="form-control" ng-model="criteria.selectedWeek" ng-options="t.value as t.label for t in ttweeks" placeholder="Selecteer een week"></select>
+        </div>
+        <button class="btn btn-primary btn-md btn-block" ng-click='go()'>Go</button>
+    </div>
+</div>

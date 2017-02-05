@@ -1,0 +1,27 @@
+
+***** check relation TEAM (CLUB) -- DIVISIE (AFDELING) ? : http://api.vttl.be/0.7/?wsdl
+
+
+
+*** replace the 'default' select/option approach by the 'CHOSEN' implementation :
+-- https://harvesthq.github.io/chosen/
+
+
+** add a webpack template with automatic 'build' .. bundling & minification of javascript
+
+* add the toastr library 4 'toastr' notifications
+
+* set the global background image as defined in app.css
+
+* set a placeholder (text) in 3 select ?! : http://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box
+* set initial value in 3 * select ?! : https://www.gurustop.net/blog/2014/01/28/common-problems-and-solutions-when-using-select-elements-with-angular-js-ng-options-initial-selection/
+
+
+* avoid error "Failed to load resource: the server responded with a status of 404 (Not Found)" ... as result of the request 4 (missing) 'favicon.ico'
+
+
+
+
+///
+
+? alternative 4 soap : https://github.com/andrewmcgivery/angular-soap ??
