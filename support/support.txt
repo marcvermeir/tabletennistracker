@@ -1,0 +1,17 @@
+
+** AngularJS Model Architecture : 
+-- // https://danmartensen.svbtle.com/data-model-architecture-in-angular
+
+** HTML Select : 
+-- http://odetocode.com/blogs/scott/archive/2013/06/19/using-ngoptions-in-angularjs.aspx
+
+** CHOSEN package :
+-- https://harvesthq.github.io/chosen/
+
+
+** Angular $scope & $apply() 
+-- http://jimhoskins.com/2012/12/17/angularjs-and-apply.html
+-- 
+
+** JQuery - SOAP :
+-- https://github.com/doedje/jquery.soap

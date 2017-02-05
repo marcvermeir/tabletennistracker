@@ -1,0 +1,26 @@
+body {
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #565a5c;
+    background-color: #f5f5f5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+select:focus option.holder {
+  display: none;
+}
+
+.centered-select {
+  display: block;
+  width: 300px;
+  margin: 10px auto;
+}
+
+.ttapp {
+    /* background-image: url('http://freeimagescollection.com/images/objects/table-tennis-ball-and-racket-on-ping-pong-table-f5.jpg'); */
+    background-image: url('../images/HD-Table-Tennis-Background.jpg');
+
+    height: 627px; /* 375 */   
+}

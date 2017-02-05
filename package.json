@@ -1,0 +1,40 @@
+{
+  "name": "table-tennis-tracker",
+  "version": "1.0.0",
+  "description": "Table Tennis Tracker",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "hmr",
+    "live",
+    "edit",
+    "webpack"
+  ],
+  "author": "MME",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "chosen-js": "^1.6.2",
+    "fontawesome": "^4.5.0",
+    "history": "^1.17.0",
+    "jquery": "^2.2.1",
+    "jquery-xml2json": "0.0.8"
+  }
+}
