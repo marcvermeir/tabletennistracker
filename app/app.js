@@ -9,12 +9,12 @@ app.config(['$routeProvider',
     $routeProvider
     .when('/', {
       title: 'Criteria', 
-      templateUrl: 'partials/Criteria.html',
+      templateUrl: 'criteria.html',
       controller: 'criteriaCtrl'
     })
     .when('/matches', {
       title: 'Matches',
-      templateUrl: 'partials/Matches.html',
+      templateUrl: 'matches.html',
       controller: 'matchesCtrl'
     })
     .otherwise({
