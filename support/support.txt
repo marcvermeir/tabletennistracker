@@ -15,3 +15,6 @@
 
 ** JQuery - SOAP :
 -- https://github.com/doedje/jquery.soap
+
+** JS :
+-- http://stackoverflow.com/questions/154059/how-do-you-check-for-an-empty-string-in-javascript

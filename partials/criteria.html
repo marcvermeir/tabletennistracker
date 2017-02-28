@@ -10,6 +10,6 @@
             <h4>Weken</h4>
             <select class="form-control" ng-model="criteria.selectedWeek" ng-options="t.value as t.label for t in ttweeks" placeholder="Selecteer een week"></select>
         </div>
-        <button class="btn btn-primary btn-md btn-block" ng-click='go()'>Go</button>
+        <button class="btn btn-primary btn-md btn-block" ng-click='go()' ng-disabled='invalidCriteria()'>Go</button>
     </div>
 </div>

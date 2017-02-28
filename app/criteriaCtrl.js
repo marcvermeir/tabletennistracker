@@ -1,6 +1,6 @@
 app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService) {
 
-    $scope.criteria = { selectedTeam: '', selectedDivision: '', selectedWeek: '' };
+    // $scope.criteria = { selectedTeam: '', selectedDivision: '', selectedWeek: '' };
 
     $scope.go = function() {
     
@@ -8,6 +8,16 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
 
       $location.path('/matches');
     };
+
+    $scope.invalidCriteria = function() {
+        return isEmpty($scope.criteria.selectedTeam) ||
+                isEmpty($scope.criteria.selectedDivision) ||
+                isEmpty($scope.criteria.selectedWeek);
+    };
+
+    function isEmpty(str) {
+        return (!str || 0 === str.length);
+    }
 
     $scope.fetchTeams = function(season) {
         'use strict';
@@ -77,9 +87,10 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
 
                     if (entries) {
                         result = entries.map(function(entry) {
+                            var ti = entry['ns1:Team'];
                             var di = entry['ns1:DivisionId'];
                             var dn = entry['ns1:DivisionName'];
-                            return { 'value': di, 'label': dn };
+                            return { 'value': di, 'label': 'Ploeg ' + ti + ' - ' + dn };
                         });
                     };
                 };
@@ -119,10 +130,11 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
 
                     if (entries) {
                         result = entries.map(function(entry) {
+                            var ti = entry['ns1:Team'];
                             var di = entry['ns1:DivisionId'];
                             var dn = entry['ns1:DivisionName'];
                             var t = entry['ns1:Team'];
-                            return { 'value': di, 'label': 'Ploeg ' + t + ' - ' + dn };
+                            return { 'value': di, 'label': 'Ploeg ' + ti + ' - ' + dn };
                         });
                     };
                 };
@@ -170,22 +182,28 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
     $scope.teamChanged = function() {
         var selectedTeam = $scope.criteria.selectedTeam;
         if (selectedTeam) {
-            $scope.fetchClubTeams(selectedTeam, season);
+            $scope.fetchClubTeams(selectedTeam, $scope.season);
             if ($scope.ttdivisions.length == 0) {
-                $scope.fetchDivisions(season);
+                $scope.fetchDivisions($scope.season);
             }
         } else
-            $scope.fetchDivisions(season);
+            $scope.fetchDivisions($scope.season);
     };
 
     $scope.initialize = function() {
 
-      //TODO: define 'season' parameter :
-      var season = '17'; // aka Season 2016-2017
+        var criteria = sharedService.getCriteria();
+        if (!criteria)
+            $scope.criteria = { selectedTeam: '', selectedDivision: '', selectedWeek: '' };
+        else
+            $scope.criteria = criteria;
 
-      $scope.fetchDivisions(season);
-      $scope.fetchTeams(season);
-      $scope.fetchWeeks();
+        //TODO: define 'season' parameter :
+        $scope.season = '17'; // aka Season 2016-2017
+
+        $scope.fetchDivisions($scope.season);
+        $scope.fetchTeams($scope.season);
+        $scope.fetchWeeks();
     };
 
     $scope.initialize();
