@@ -1,6 +1,6 @@
 app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService) {
 
-    // $scope.criteria = { selectedTeam: '', selectedDivision: '', selectedWeek: '' };
+    //// $scope.criteria = { selectedTeam: '', selectedDivision: '', selectedWeek: '' };
 
     $scope.go = function() {
     
@@ -87,10 +87,9 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
 
                     if (entries) {
                         result = entries.map(function(entry) {
-                            var ti = entry['ns1:Team'];
                             var di = entry['ns1:DivisionId'];
                             var dn = entry['ns1:DivisionName'];
-                            return { 'value': di, 'label': 'Ploeg ' + ti + ' - ' + dn };
+                            return { 'value': di, 'label': dn };
                         });
                     };
                 };
@@ -182,27 +181,30 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
     $scope.teamChanged = function() {
         var selectedTeam = $scope.criteria.selectedTeam;
         if (selectedTeam) {
-            $scope.fetchClubTeams(selectedTeam, $scope.season);
+            $scope.fetchClubTeams(selectedTeam, $scope.criteria.season);
             if ($scope.ttdivisions.length == 0) {
-                $scope.fetchDivisions($scope.season);
+                $scope.fetchDivisions($scope.criteria.season);
             }
         } else
-            $scope.fetchDivisions($scope.season);
+            $scope.fetchDivisions($scope.criteria.season);
     };
 
     $scope.initialize = function() {
 
-        var criteria = sharedService.getCriteria();
-        if (!criteria)
-            $scope.criteria = { selectedTeam: '', selectedDivision: '', selectedWeek: '' };
-        else
-            $scope.criteria = criteria;
+        //// var criteria = sharedService.getCriteria();
+        ////TODO: define 'season' parameter :
+        ////if (!criteria)
+        ////    $scope.criteria = { season: '17', selectedTeam: '', selectedDivision: '', selectedWeek: '' };
+        ////else
+        ////    $scope.criteria = criteria;
 
-        //TODO: define 'season' parameter :
-        $scope.season = '17'; // aka Season 2016-2017
+        //// $scope.season = '17'; // aka Season 2016-2017
 
-        $scope.fetchDivisions($scope.season);
-        $scope.fetchTeams($scope.season);
+        sharedService.setCriteria(null);
+        $scope.criteria = sharedService.getCriteria();
+
+        $scope.fetchDivisions($scope.criteria.season);
+        $scope.fetchTeams($scope.criteria.season);
         $scope.fetchWeeks();
     };
 

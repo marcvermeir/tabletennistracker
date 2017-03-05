@@ -7,7 +7,11 @@ app.factory("sharedService", function() {
             sharedData.criteria = criteria;
         },
         getCriteria: function() {
-            return sharedData.criteria;
+            if (sharedData.criteria)
+              return sharedData.criteria;
+            else
+              //todo: get 'season' from configuration ?!
+              return { season: '17', selectedTeam: '', selectedDivision: '', selectedWeek: '' };
         }
     };
 });
