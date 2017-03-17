@@ -3,14 +3,35 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Matches</div>
         <div class="panel-body">
-            <!--
-            <h4 class="centered-select">Teams</h4>
-            <select class="centered-select" ng-model="criteria.selectedTeam" ng-options="t.value as t.label for t in ttteams" placeholder="Selecteer een team"></select>
-            <h4 class="centered-select">Divisions</h4>
-            <select class="centered-select" ng-model="criteria.selectedDivision" ng-options="t.value as t.label for t in ttdivisions" placeholder="Selecteer een divisie"></select>
-            <h4 class="centered-select">Weeks</h4>
-            <select class="centered-select" ng-model="criteria.selectedWeek" ng-options="t.value as t.label for t in ttweeks" placeholder="Selecteer een week"></select>
-            -->
+            <h4>Division : {{criteria.selectedDivisionName}}</h4>
+            <table class="table table-striped">
+                <tr ng-show="matches.length==0">
+                    <td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td>
+                </tr>
+                <tr ng-hide="matches.length>-1">
+                    <td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td>
+                </tr>
+                <tr ng-repeat="m in matches | orderBy:'matchid'" id="{{m.matchid}}" animate-on-change='m.matchid + m.hometeam + m.awayteam + m.score' ng-animate="'animate'">
+                    <td>{{m.hometeam}}</td>
+                    <td>{{m.awayteam}}</td>
+                    <td>{{m.score}}</td>   
+                </tr>
+            </table>
+            <h4>Ranking</h4>
+            <table class="table table-striped">
+                <tr ng-show="ranking.length==0">
+                    <td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td>
+                </tr>
+                <tr ng-hide="ranking.length>-1">
+                    <td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td>
+                </tr>
+                <tr ng-repeat="r in ranking | orderBy:orderRanking" id="{{r.position}}" animate-on-change='r.position + r.team + r.points' ng-animate="'animate'">
+                    <td>{{r.position}}</td>
+                    <td>{{r.team}}</td>
+                    <td>{{r.points}} pts</td>   
+                </tr>
+            </table>
         </div>
+        <button class="btn btn-primary btn-md btn-block" ng-click='home()'>Home</button>
     </div>
 </div>

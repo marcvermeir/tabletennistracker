@@ -1,12 +1,22 @@
 app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService) {
 
-    //// $scope.criteria = { selectedTeam: '', selectedDivision: '', selectedWeek: '' };
-
     $scope.go = function() {
-    
-      sharedService.setCriteria($scope.criteria);
 
-      $location.path('/matches');
+        var selectedDivisionName = $scope.ttdivisions.filter(function(item) {
+            return item.value === $scope.criteria.selectedDivision;
+        })[0].name;
+
+//todo; get the selecred Team Name :
+        /*
+        var selectedTeamName = $scope.ttteams.filter(function(item) {
+            return item.value === $scope.criteria.selectedTeam;
+        })[0].name;
+        */
+
+        $scope.criteria.selectedDivisionName = selectedDivisionName;
+        sharedService.setCriteria($scope.criteria);
+
+        $location.path('/matches');
     };
 
     $scope.invalidCriteria = function() {
@@ -132,8 +142,8 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
                             var ti = entry['ns1:Team'];
                             var di = entry['ns1:DivisionId'];
                             var dn = entry['ns1:DivisionName'];
-                            var t = entry['ns1:Team'];
-                            return { 'value': di, 'label': 'Ploeg ' + ti + ' - ' + dn };
+                            //// var t = entry['ns1:Team'];
+                            return { 'value': di, 'label': 'Ploeg ' + ti + ' - ' + dn, 'name': dn };
                         });
                     };
                 };
@@ -191,21 +201,19 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
 
     $scope.initialize = function() {
 
-        //// var criteria = sharedService.getCriteria();
-        ////TODO: define 'season' parameter :
-        ////if (!criteria)
-        ////    $scope.criteria = { season: '17', selectedTeam: '', selectedDivision: '', selectedWeek: '' };
-        ////else
-        ////    $scope.criteria = criteria;
-
-        //// $scope.season = '17'; // aka Season 2016-2017
-
         sharedService.setCriteria(null);
         $scope.criteria = sharedService.getCriteria();
+
+        $scope.ttweeks = {};
+        $scope.ttteams = {};
+        $scope.ttdivisions = {};
 
         $scope.fetchDivisions($scope.criteria.season);
         $scope.fetchTeams($scope.criteria.season);
         $scope.fetchWeeks();
+
+//todo: preselect the 3 comboboxes with the saved state ?!
+
     };
 
     $scope.initialize();

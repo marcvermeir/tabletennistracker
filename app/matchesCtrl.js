@@ -1,5 +1,17 @@
 app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService) {
 
+//todo: show the selected team in bold in both grids: matches && ranking
+//todo: show the matches (list) as hyperlinks to the game (detail) view
+
+    $scope.orderRanking = function(item){
+      return parseInt(item.position);
+    };
+
+    $scope.home = function() {
+
+        $location.path('/');
+    };
+
     $scope.fetchMatches = function(divisionId, season, weekName) {
         'use strict';
 
@@ -43,6 +55,7 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
                 };
 
                 $scope.matches = result;
+                $scope.$apply();
 
             },
             error: function(SOAPResponse) {
@@ -75,13 +88,13 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
                 var result = [];
                 var json = SOAPResponse.toJSON();
                 if (json) {
-                    // var count = parseInt(json['#document']['SOAP-ENV:Envelope']['SOAP-ENV:Body']['ns1:GetDivisionRankingResponse']['ns1:MatchCount']);
+                    // .. var count = parseInt(json['#document']['SOAP-ENV:Envelope']['SOAP-ENV:Body']['ns1:GetDivisionRankingResponse']['ns1:MatchCount']);
                     var entries = json['#document']['SOAP-ENV:Envelope']['SOAP-ENV:Body']['ns1:GetDivisionRankingResponse']['ns1:RankingEntries'];
 
                     if (entries) {
                         result = entries.map(function(entry) {
                             var po = entry['ns1:Position'];
-                            var tm = entry['ns1:Team'];
+                            var tm = entry['ns1:Team'].trim();
                             var pt = entry['ns1:Points'];
                             
                             return { 'position': po, 'team': tm, 'points': pt };
@@ -90,6 +103,7 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
                 };
 
                 $scope.ranking = result;
+                $scope.$apply();
 
             },
             error: function(SOAPResponse) {
