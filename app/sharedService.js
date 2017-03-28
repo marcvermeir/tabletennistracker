@@ -13,7 +13,7 @@ app.factory("sharedService", function() {
               return sharedData.criteria;
             else
               //todo: get 'season' from configuration ?!
-              return { season: '17', selectedTeam: '', selectedDivision: '', selectedWeek: '', selectedGame: '', selectedDivisionName: '', selectedTeamName: '', selectedMatch: '' };
+              return { season: '17', selectedTeam: '', selectedDivision: '', selectedWeek: '', selectedGame: '', selectedDivisionName: '' };
         }
     };
 });

@@ -14,7 +14,10 @@
                 <tr ng-repeat="m in matches | orderBy:'matchid'" id="{{m.matchid}}" animate-on-change='m.matchid + m.hometeam + m.awayteam + m.score' ng-animate="'animate'">
                     <td>{{m.hometeam}}</td>
                     <td>{{m.awayteam}}</td>
-                    <td>{{m.score}}</td>   
+                    <td>{{m.score}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-round-md" ng-click="game(m);">Game</button>
+                    </td>
                 </tr>
             </table>
             <h4>Ranking</h4>

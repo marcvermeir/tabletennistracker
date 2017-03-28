@@ -1,2 +1,32 @@
 <hr/>
-<h3>Game Detail</h3>
+<div class="table-responsive">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Game</div>
+        <div class="panel-body">
+            <h4>Game : {{criteria.selectedGame}}</h4>
+            <table class="table table-striped">
+                <tr ng-show="games.length==0">
+                    <td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td>
+                </tr>
+                <tr ng-hide="games.length>-1">
+                    <td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td>
+                </tr>
+                <tr ng-repeat="g in games | orderBy:'matchid'" id="{{g.matchid}}" animate-on-change='g.matchid + g.hometeam + g.awayteam + g.score' ng-animate="'animate'">
+                    <td>{{g.hometeam}}</td>
+                    <td>{{g.awayteam}}</td>
+                    <td>{{g.score}}</td>
+                </tr>
+
+                <!-- //TODO: get & show the players 
+                <tr ng-repeat="p in players | orderBy:'matchid'" id="{{m.matchid}}" animate-on-change='m.matchid + m.hometeam + m.awayteam + m.score' ng-animate="'animate'">
+                    <td>{{m.hometeam}}</td>
+                    <td>{{m.awayteam}}</td>
+                    <td>{{m.score}}</td>   
+                </tr>
+                -->
+            </table>
+        </div>
+        <button class="btn btn-primary btn-md" ng-click='back()'>Back</button>
+        <button class="btn btn-primary btn-md" ng-click='home()'>Home</button>  
+    </div>
+</div>

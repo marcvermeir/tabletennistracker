@@ -1,4 +1,4 @@
-app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService) {
+app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService, ENVIRONMENT) {
 
 //todo: show the selected team in bold in both grids: matches && ranking
 //todo: show the matches (list) as hyperlinks to the game (detail) view
@@ -9,7 +9,15 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
 
     $scope.home = function() {
 
+        sharedService.setCriteria(null);
         $location.path('/');
+    };
+
+    $scope.game = function(match) {
+        
+        $scope.criteria.selectedGame = match.matchid;
+        sharedService.setCriteria($scope.criteria);
+        $location.path('/game');
     };
 
     $scope.fetchMatches = function(divisionId, season, weekName) {
@@ -117,6 +125,14 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
     $scope.initialize = function() {
 
         $scope.criteria = sharedService.getCriteria();
+
+        //todo: remove the following 3 lines :
+        if (ENVIRONMENT.DEBUG) {
+            $scope.criteria.selectedDivision = '2960';
+            $scope.criteria.season = '17';
+            $scope.criteria.selectedWeek = '11';
+        };
+        // <<<
 
         $scope.matches = {};
         $scope.ranking = {};

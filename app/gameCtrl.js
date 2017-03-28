@@ -1,4 +1,16 @@
-app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService) {
+app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService, ENVIRONMENT) {
+
+    $scope.home = function() {
+
+        sharedService.setCriteria(null);
+        $location.path('/');
+    };
+
+    $scope.back = function() {
+
+        //todo: sharedService.setCriteria(null);
+        $location.path('/matches');
+    };
 
     $scope.fetchGame = function(divisionId, season, weekName, gameId) {
         'use strict';
@@ -29,7 +41,8 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
                 var json = SOAPResponse.toJSON();
                 if (json) {
                     var count = parseInt(json['#document']['SOAP-ENV:Envelope']['SOAP-ENV:Body']['ns1:GetMatchesResponse']['ns1:MatchCount']);
-                    var entries = json['#document']['SOAP-ENV:Envelope']['SOAP-ENV:Body']['ns1:GetMatchesResponse']['ns1:TeamMatchesEntries'];
+                    var entries = [];
+                    entries.push(json['#document']['SOAP-ENV:Envelope']['SOAP-ENV:Body']['ns1:GetMatchesResponse']['ns1:TeamMatchesEntries']);
 
                     if (entries) {
                         result = entries.map(function(entry) {
@@ -44,7 +57,8 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
                     };
                 };
 
-                $scope.matches = result;
+                $scope.games = result;
+                $scope.$apply();
 
             },
             error: function(SOAPResponse) {
@@ -59,7 +73,7 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
 
         $scope.criteria = sharedService.getCriteria();
 
-        $scope.game = {};
+        $scope.games = {};
 
         $scope.fetchGame($scope.criteria.selectedDivision, $scope.criteria.season, $scope.criteria.selectedWeek, $scope.criteria.selectedGame);
     };
