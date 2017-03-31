@@ -1,7 +1,10 @@
 
-***** check relation TEAM (CLUB) -- DIVISIE (AFDELING) ? : http://api.vttl.be/0.7/?wsdl
+***** : http://api.vttl.be/0.7/?wsdl
+
+**** : navigation bar : disable options Matches / Game .. enable options when applicable
 
 
+ 
 
 *** replace the 'default' select/option approach by the 'CHOSEN' implementation :
 -- https://harvesthq.github.io/chosen/

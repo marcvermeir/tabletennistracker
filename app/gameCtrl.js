@@ -8,7 +8,8 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
 
     $scope.back = function() {
 
-        //todo: sharedService.setCriteria(null);
+        //todo: .. adapt the following :
+        sharedService.setCriteria(null);
         $location.path('/matches');
     };
 
@@ -52,7 +53,23 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
                             var at = entry['ns1:AwayTeam'];
                             var sc = entry['ns1:Score'];
 
-                            return { 'matchid': mi, 'date': dt, 'hometeam': ht, 'awayteam': at, 'score': sc };
+                            var matches = [];
+                            var matchDetails = entry['ns1:MatchDetails'];
+                            var individualMatchResults = matchDetails['ns1:IndividualMatchResults'];
+
+                            //todo: ASAP: get the homeplayer and awayplayer details from matchDetails.HomePlayers.Players / matchDetails.AwayPlayers.Players ..
+                            //.. return player name & firstname + ranking
+                            matches = individualMatchResults.map(function(individualMatchResult) {
+                                return { 'position': individualMatchResult['ns1:Position'], 
+                                         'homeplayer': individualMatchResult['ns1:HomePlayerUniqueIndex'], 
+                                         'homeranking': '', 
+                                         'awayplayer': individualMatchResult['ns1:AwayPlayerUniqueIndex'], 
+                                         'awayranking': '', 
+                                         'score': ''.concat(individualMatchResult['ns1:HomeSetCount'], '-', individualMatchResult['ns1:AwaySetCount']) };
+
+                            });
+
+                            return { 'matchid': mi, 'date': dt, 'hometeam': ht, 'awayteam': at, 'score': sc, 'matches': matches };
                         });
                     };
                 };

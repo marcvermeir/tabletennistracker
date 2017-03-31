@@ -16,14 +16,12 @@
                     <td>{{g.awayteam}}</td>
                     <td>{{g.score}}</td>
                 </tr>
-
-                <!-- //TODO: get & show the players 
-                <tr ng-repeat="p in players | orderBy:'matchid'" id="{{m.matchid}}" animate-on-change='m.matchid + m.hometeam + m.awayteam + m.score' ng-animate="'animate'">
-                    <td>{{m.hometeam}}</td>
-                    <td>{{m.awayteam}}</td>
-                    <td>{{m.score}}</td>   
+                <tr><td/><td/><td/></tr>
+                <tr ng-repeat="m in games[0].matches" id="{{m.position}}" animate-on-change='m.homeplayer + m.homeranking + m.awayplayer + m.awayranking + m.score' ng-animate="'animate'">
+                    <td>{{m.homeplayer}} ({{m.homeranking}})</td>
+                    <td>{{m.awayplayer}} ({{m.awayranking}})</td>
+                    <td>{{m.score}}</td>
                 </tr>
-                -->
             </table>
         </div>
         <button class="btn btn-primary btn-md" ng-click='back()'>Back</button>
