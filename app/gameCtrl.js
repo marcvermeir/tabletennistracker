@@ -55,10 +55,24 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
 
                             var matches = [];
                             var matchDetails = entry['ns1:MatchDetails'];
+
+                            var homePlayers = matchDetails['ns1:HomePlayers']['ns1:Players'];
+                            var awayPlayers = matchDetails['ns1:AwayPlayers']['ns1:Players'];
                             var individualMatchResults = matchDetails['ns1:IndividualMatchResults'];
 
-                            //todo: ASAP: get the homeplayer and awayplayer details from matchDetails.HomePlayers.Players / matchDetails.AwayPlayers.Players ..
-                            //.. return player name & firstname + ranking
+                            
+                            homePlayers = homePlayers.map(function(homePlayer) {
+                                return { 'uidx': homePlayer['ns1:UniqueIndex'], 
+                                         'name': homePlayer['ns1:LastName'] + ' ' + homePlayer['ns1:FirstName'], 
+                                         'ranking': homePlayer['ns1:Ranking'] };
+                            });
+
+                            awayPlayers = awayPlayers.map(function(awayPlayer) {
+                                return { 'uidx': awayPlayer['ns1:UniqueIndex'], 
+                                         'name': awayPlayer['ns1:LastName'] + ' ' + awayPlayer['ns1:FirstName'], 
+                                         'ranking': awayPlayer['ns1:Ranking'] };
+                            });
+
                             matches = individualMatchResults.map(function(individualMatchResult) {
                                 return { 'position': individualMatchResult['ns1:Position'], 
                                          'homeplayer': individualMatchResult['ns1:HomePlayerUniqueIndex'], 
@@ -66,6 +80,27 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
                                          'awayplayer': individualMatchResult['ns1:AwayPlayerUniqueIndex'], 
                                          'awayranking': '', 
                                          'score': ''.concat(individualMatchResult['ns1:HomeSetCount'], '-', individualMatchResult['ns1:AwaySetCount']) };
+
+                            });
+
+                            matches = matches.map(function(match) {
+                                var result = angular.copy(match);
+
+                                // for each match : get the homeplayer details and return these as 'lastname + firstname' and ranking :
+                                var hpUIdx = result.homeplayer;
+                                var hp = $filter('filter')(homePlayers, {uidx: hpUIdx})[0];
+
+                                result.homeplayer = hp.name;
+                                result.homeranking = hp.ranking;
+
+                                // for each match : get the awayplayer details and return these as 'lastname + firstname' and ranking :
+                                var apUIdx = result.awayplayer;
+                                var ap = $filter('filter')(awayPlayers, {uidx: apUIdx})[0];
+
+                                result.awayplayer = ap.name;
+                                result.awayranking = ap.ranking;
+
+                                return result;
 
                             });
 

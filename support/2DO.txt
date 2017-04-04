@@ -1,10 +1,23 @@
 
 ***** : http://api.vttl.be/0.7/?wsdl
 
-**** : navigation bar : disable options Matches / Game .. enable options when applicable
+>>> ASAP :
 
+*** game detail : link playerindexes to player details : first & lastname, ranking
 
- 
+** bootstrap implementation to align & size the buttons
+** dates 20171231 & 20170101 should become / filled in dynamically 
+** season criterium should become / filled in dynamically
+
+* navigation bar : disable options Matches / Game .. enable options when applicable
+* provide a tennis table related background image
+
+*** deploy on MS Azure ?!
+
+<<<
+
+* implement a notification when data request problems ?!
+
 
 *** replace the 'default' select/option approach by the 'CHOSEN' implementation :
 -- https://harvesthq.github.io/chosen/
