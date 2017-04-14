@@ -6,7 +6,7 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
             return item.value === $scope.criteria.selectedDivision;
         })[0].name;
 
-//todo; get the selecred Team Name :
+        //todo; get the selecred Team Name :
         /*
         var selectedTeamName = $scope.ttteams.filter(function(item) {
             return item.value === $scope.criteria.selectedTeam;
@@ -153,7 +153,6 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
             },
             error: function(SOAPResponse) {
                 //TODO: implement error handling ..
-                alert(SOAPResponse);
             }
         });
     };
@@ -212,7 +211,7 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
         $scope.fetchTeams($scope.criteria.season);
         $scope.fetchWeeks();
 
-//todo: preselect the 3 comboboxes with the saved state ?!
+        //todo: preselect the 3 comboboxes with the saved state ?!
 
     };
 

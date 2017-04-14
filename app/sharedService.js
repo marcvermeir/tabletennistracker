@@ -1,8 +1,8 @@
-app.factory("sharedService", function() {
+app.factory("sharedService", function($filter) {
 
     var sharedData = [ { } ];
 
-//todo: save the criteria into isolated storage ?!
+    //todo: save/persist the criteria into isolated storage ?!
 
     return {
         setCriteria: function(criteria) {
@@ -11,9 +11,13 @@ app.factory("sharedService", function() {
         getCriteria: function() {
             if (sharedData.criteria)
               return sharedData.criteria;
-            else
-              //todo: get 'season' from configuration ?!
-              return { season: '17', selectedTeam: '', selectedDivision: '', selectedWeek: '', selectedGame: '', selectedDivisionName: '' };
+            else {
+
+              // extracts the '17' from (current) year 2017 :
+              var year2Day = $filter('date')(new Date(), 'yyyy').slice(-2);
+
+              return { season: year2Day, selectedTeam: '', selectedDivision: '', selectedWeek: '', selectedGame: '', selectedDivisionName: '' };
+            }
         }
     };
 });

@@ -8,13 +8,16 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
 
     $scope.back = function() {
 
-        //todo: .. adapt the following :
-        sharedService.setCriteria(null);
+        sharedService.setCriteria($scope.criteria);
         $location.path('/matches');
     };
 
     $scope.fetchGame = function(divisionId, season, weekName, gameId) {
         'use strict';
+
+        var year2Day = $filter('date')(new Date(), 'yyyy');
+        var yearDateFrom = year2Day + '0101';
+        var yearDateTo = year2Day + '1231';
 
         $.soap({
             url: VTTLAPI.URL,
@@ -31,9 +34,8 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
                 DivisionId: divisionId,
                 Season: season,
                 WeekName: weekName,
-                //todo: derive both dates from the passed season :
-                YearDateFrom: '20170101',
-                YearDateTo: '20171231',
+                YearDateFrom: yearDateFrom,
+                YearDateTo: yearDateTo,
                 WithDetails: 'yes',
                 MatchId: gameId
             },
@@ -115,8 +117,6 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
             },
             error: function(SOAPResponse) {
                 //TODO: implement error handling ..
-                alert(SOAPResponse);
-
             }
         });
     };
@@ -131,8 +131,4 @@ app.controller("gameCtrl", function($scope, $modal, $filter, $location, VTTLAPI,
     };
 
     $scope.initialize();
-
-    //todo: remove the following :
-    // alert($scope.criteria.season + '/' + $scope.criteria.selectedTeam + '/' + $scope.criteria.selectedDivision + '/' + $scope.criteria.selectedWeek);
-
 });

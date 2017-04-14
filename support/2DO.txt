@@ -3,16 +3,17 @@
 
 >>> ASAP :
 
-*** game detail : link playerindexes to player details : first & lastname, ranking
+** navigation bar : disable options Matches / Game .. enable options when applicable
+** 'back' navigation to matches view is NOK : list with divisions is NOK due to missing 'criteria' ?!
 
-** bootstrap implementation to align & size the buttons
-** dates 20171231 & 20170101 should become / filled in dynamically 
-** season criterium should become / filled in dynamically
 
-* navigation bar : disable options Matches / Game .. enable options when applicable
+* use a smaller font to display the content ?!
+* bootstrap implementation to align & size the buttons
 * provide a tennis table related background image
 
-*** deploy on MS Azure ?!
+
+°° game detail : link playerindexes to player details : first & lastname, ranking
+
 
 <<<
 

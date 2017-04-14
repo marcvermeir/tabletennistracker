@@ -5,7 +5,7 @@ app.constant('VTTLAPI', {
     'WSDL': 'http://api.vttl.be/0.7/?wsdl',
     'NAMESPACEURL': 'http://api.frenoy.net/TabTAPI'
 });
-app.constant('ENVIRONMENT', { 'DEBUG': true });
+app.constant('ENVIRONMENT', { 'DEBUG': false });
 
 app.config(['$routeProvider',
     function($routeProvider) {

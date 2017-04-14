@@ -23,6 +23,10 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
     $scope.fetchMatches = function(divisionId, season, weekName) {
         'use strict';
 
+        var year2Day = $filter('date')(new Date(), 'yyyy');
+        var yearDateFrom = year2Day + '0101';
+        var yearDateTo = year2Day + '1231';
+
         $.soap({
             url: VTTLAPI.URL,
             type: 'POST',
@@ -38,9 +42,8 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
                 DivisionId: divisionId,
                 Season: season,
                 WeekName: weekName,
-                //todo: derive both dates from the passed season :
-                YearDateFrom: '20170101',
-                YearDateTo: '20171231'
+                YearDateFrom: yearDateFrom,
+                YearDateTo: yearDateTo
             },
             success: function(SOAPResponse) {
                 var result = [];
@@ -68,8 +71,6 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
             },
             error: function(SOAPResponse) {
                 //TODO: implement error handling ..
-                alert(SOAPResponse);
-
             }
         });
     };
@@ -116,8 +117,6 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
             },
             error: function(SOAPResponse) {
                 //TODO: implement error handling ..
-                alert(SOAPResponse);
-
             }
         });
     };
@@ -125,14 +124,6 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
     $scope.initialize = function() {
 
         $scope.criteria = sharedService.getCriteria();
-
-        //todo: remove the following 3 lines :
-        if (ENVIRONMENT.DEBUG) {
-            $scope.criteria.selectedDivision = '2960';
-            $scope.criteria.season = '17';
-            $scope.criteria.selectedWeek = '11';
-        };
-        // <<<
 
         $scope.matches = {};
         $scope.ranking = {};
@@ -142,8 +133,4 @@ app.controller("matchesCtrl", function($scope, $modal, $filter, $location, VTTLA
     };
 
     $scope.initialize();
-
-    //todo: remove the following :
-    // alert($scope.criteria.season + '/' + $scope.criteria.selectedTeam + '/' + $scope.criteria.selectedDivision + '/' + $scope.criteria.selectedWeek);
-
 });
