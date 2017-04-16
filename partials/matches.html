@@ -3,7 +3,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Matches</div>
         <div class="panel-body">
-            <h4>Division : {{criteria.selectedDivisionName}}</h4>
+            <h5><strong>Division : {{criteria.selectedDivisionName}}</strong></h5>
             <table class="table table-striped">
                 <tr ng-show="matches.length==0">
                     <td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td>
@@ -16,11 +16,11 @@
                     <td>{{m.awayteam}}</td>
                     <td>{{m.score}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-round-md" ng-click="game(m);">Game</button>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="game(m);">Game</button>
                     </td>
                 </tr>
             </table>
-            <h4>Ranking</h4>
+            <h5><strong>Ranking</strong></h5>
             <table class="table table-striped">
                 <tr ng-show="ranking.length==0">
                     <td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td>
@@ -35,6 +35,6 @@
                 </tr>
             </table>
         </div>
-        <button class="btn btn-primary btn-md btn-block" ng-click='home()'>Home</button>
+        <button class="btn btn-primary btn-md btn-block" ng-click='home()'>Search</button>
     </div>
 </div>

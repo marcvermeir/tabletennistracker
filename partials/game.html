@@ -3,7 +3,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Game</div>
         <div class="panel-body">
-            <h4>Game : {{criteria.selectedGame}}</h4>
+            <h5><strong>Game : {{criteria.selectedGame}}</strong></h5>
             <table class="table table-striped">
                 <tr ng-show="games.length==0">
                     <td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td>
@@ -16,7 +16,11 @@
                     <td>{{g.awayteam}}</td>
                     <td>{{g.score}}</td>
                 </tr>
-                <tr><td/><td/><td/></tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>                
                 <tr ng-repeat="m in games[0].matches" id="{{m.position}}" animate-on-change='m.homeplayer + m.homeranking + m.awayplayer + m.awayranking + m.score' ng-animate="'animate'">
                     <td>{{m.homeplayer}} ({{m.homeranking}})</td>
                     <td>{{m.awayplayer}} ({{m.awayranking}})</td>
@@ -24,7 +28,7 @@
                 </tr>
             </table>
         </div>
-        <button class="btn btn-primary btn-md" ng-click='back()'>Back</button>
-        <button class="btn btn-primary btn-md" ng-click='home()'>Home</button>  
+        <button class="btn btn-primary btn-md" ng-click='back()'>Matches</button>
+        <button class="btn btn-primary btn-md" ng-click='home()'>Search</button>  
     </div>
 </div>

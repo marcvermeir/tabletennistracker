@@ -11,7 +11,7 @@ app.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider
             .when('/', {
-                title: 'Criteria',
+                title: 'Search',
                 templateUrl: 'partials/criteria.html',
                 controller: 'criteriaCtrl'
             })

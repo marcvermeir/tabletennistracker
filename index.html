@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="css/app.css" type="text/css" />
 
     <div class="blog-masthead" ng-controller="menuCtrl">
-        <div class="container">
+        <div class="container-fluid">
             <nav class="blog-nav">
-                <a ng-class="menuClass('/home')" href="#/home">TT Tracker</a>
-                <a ng-class="menuClass('/')" href="#">Criteria</a>
-                <a ng-class="menuClass('/matches')" href="#/matches">Matches</a>
-                <a ng-class="menuClass('/game')" href="#/game">Game</a>
+                <a ng-class="menuClass('/home')" href="#/home"><strong>Table Tennis Tracker</strong></a>
+                <!--
+                <a ng-class="menuClass('/')" ng-disabled="true" ng-click="clicked()" href="#">Criteria</a>
+                <a ng-class="menuClass('/matches')" ng-disabled="true" href="#/matches">Matches</a>
+                <a ng-class="menuClass('/game')" ng-disabled="true" href="#/game">Game</a>
+                -->
             </nav>
         </div>
     </div>

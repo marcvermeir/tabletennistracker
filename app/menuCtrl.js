@@ -1,16 +1,12 @@
 
 app.controller("menuCtrl", function($scope, $location) {
 
-  $scope.menuClass = function(page) {
-    var current = $location.path();
-    return page === current ? "blog-nav-item active" : "blog-nav-item";
-  };
+	$scope.clicked = function() {
+		return false;
+	};
 
-  /*
-  $scope.menuDisabled = function(page) {
-    var current = $location.path();
-    return page === current ? false : true;
-  };
-  */
-  
+  	$scope.menuClass = function(page) {
+    	var current = $location.path();
+    	return page === current ? "blog-nav-item active" : "blog-nav-item";
+  	};
 });
