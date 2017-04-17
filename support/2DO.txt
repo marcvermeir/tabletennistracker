@@ -1,22 +1,20 @@
 
 ***** : http://api.vttl.be/0.7/?wsdl
 
->>> ASAP :
+>>> 2DO ?! :
 
-*** 'back' navigation to matches view is NOK : list with divisions is NOK due to missing 'criteria' ?!
-*** 'search' page : when a team without related team has been selected .. selecting another team does not fill in correctly the list with divisions ..
-
-
-** preselect the actual week as Week search criteria
+** preselect the actual week as Week search criteria ... but how to derive the current week ?!?!
 
 
-* use a smaller font to display the content ?! ... listboxes should be limited to the screen width ?!
-* bootstrap implementation to align & size the buttons ?!
-* provide a tennis table related background image
+°°°  use a smaller font to display the content ?! ... listboxes should be limited to the screen width ?!
+°°°  bootstrap implementation to align & size the buttons ?!
+°°°  provide a tennis table related background image
 
 
 
 <<<
+
+>>> Ideas / Tips ?? :
 
 * implement a notification when data request problems ?!
 
@@ -38,7 +36,7 @@
 * avoid error "Failed to load resource: the server responded with a status of 404 (Not Found)" ... as result of the request 4 (missing) 'favicon.ico'
 
 
-
+<<<
 
 ///
 

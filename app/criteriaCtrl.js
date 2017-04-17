@@ -1,4 +1,4 @@
-app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService) {
+app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTLAPI, sharedService, PRODUCT) {
 
     $scope.go = function() {
 
@@ -148,8 +148,13 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
                     };
                 };
 
-                $scope.ttdivisions = result;
-                $scope.$apply();
+                if (result.length == 0) {
+                    $scope.fetchDivisions(season);
+                }
+                else {    
+                    $scope.ttdivisions = result;
+                    $scope.$apply();
+                }
             },
             error: function(SOAPResponse) {
                 //TODO: implement error handling ..
@@ -191,9 +196,11 @@ app.controller("criteriaCtrl", function($scope, $modal, $filter, $location, VTTL
         var selectedTeam = $scope.criteria.selectedTeam;
         if (selectedTeam) {
             $scope.fetchClubTeams(selectedTeam, $scope.criteria.season);
+            /*
             if ($scope.ttdivisions.length == 0) {
                 $scope.fetchDivisions($scope.criteria.season);
             }
+            */
         } else
             $scope.fetchDivisions($scope.criteria.season);
     };

@@ -6,6 +6,7 @@ app.constant('VTTLAPI', {
     'NAMESPACEURL': 'http://api.frenoy.net/TabTAPI'
 });
 app.constant('ENVIRONMENT', { 'DEBUG': false });
+app.constant('PRODUCT', { 'VERSION': '1.0.0' });
 
 app.config(['$routeProvider',
     function($routeProvider) {

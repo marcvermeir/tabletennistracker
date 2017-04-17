@@ -24,3 +24,9 @@ select:focus option.holder {
 
     height: 627px; /* 375 */   
 }
+
+.btn-game
+{
+  margin: 0px 0px 0px 15px;
+}
+
