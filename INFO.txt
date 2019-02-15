@@ -1,0 +1,2 @@
+
+\tabletennistracker : initial version developed in NG aka AngularJS .. installed as http://tttracker.bitballoon.com
